@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+</head>
+
+<body>
+<svg id="chart" width="1000" height="300"></svg>
+<script>
+    const array =  [92, 56, 14, 73, 22, 38, 93, 45, 55]; //Array Data
+
+    const circles =  [50, 150, 250, 350, 450, 550, 650, 750, 850];
+
+    d3.select("#chart")
+            .selectAll("circle")
+            .data(array)
+                .enter()
+                .append("circle")
+                .attr("cy", 100)
+                .attr("r", d => d/2)
+            .data(circles)
+                .attr("cx", d => d)
+
+    setTimeout(function() {
+        d3.select("#chart").selectAll("circle") //Shapes
+            .data(array.sort())
+            .transition().duration(1500) //How fast is the transition
+                .attr("r",  d => d/2)
+                .style("fill", "blue")
+            .data(circles)
+                .attr("cx", d => d)
+        }, 2000)
+
+    
+</script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!--
+Your names goes here
+-->
+<body>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+
+  <!-- Set up basic webpage structure, creating divs for all the different sections in the website -->
+  <div id="header"  style="font-size: 50px;"></div>
+  <div id="nominal" class = "blue" ></div>
+  <div id="ordinal" class="red"></div>
+  <div id="interval" class="purple"></div>
+  <div id="ratio" class="green"></div>
+
+
+  <!-- Stylistic choises for both the website overall and the divs -->
+  <style>
+    body {
+        background-color: coral;
+    }
+    .red {
+        color: white;
+        background-color: #e41a1c;
+    }
+    .green {
+        color: white;
+        background-color: #2b9228;
+    }
+    .blue {
+        color: white;
+        background-color: #377eb8;
+    }
+    .purple {
+        color: white;
+        background-color: #984ea3;
+    }
+  </style>
+
+
+  
+  <!-- Creating the content (text, header and list) for each of the divs-->
+  <script>
+    
+    const head = d3.select("#header");
+    head.text("All About Data Types - Mastering Data Science");
+    
+    const div1 = d3.select("#nominal");
+    div1.append("h1").text("Nominal");
+    div1.append("p").text("A nominal scale describes a variable with categories that do not have a natural order or ranking. You can code nominal variables with numbers if you want, but the order is arbitrary and any calculations, such as computing a mean, median, or standard deviation, would be meaningless.");
+    div1.append("li").text("Blood Type");
+    div1.append("li").text("Gender");
+    div1.append("li").text("Political Party");
+
+    const div2 = d3.select("#ordinal");
+    div2.append("h1").text("Ordinal");
+    div2.append("p").text("An ordinal scale is one where the order matters but not the difference between values. In other words, the data is categorical and ordered but the difference between categories is not strictly defined.");
+    div2.append("li").text("socio economic status (low income,middle income,high income)");
+    div2.append("li").text("satisfaction rating (extremely dislike, dislike, neutral, like, extremely like)");
+    div2.append("li").text("working out frequency (often, sometimes, almost never, never)");
+    
+    const div3 = d3.select("#interval");
+    div3.append("h1").text("Interval");
+    div3.append("p").text("An interval scale is one where there is order and the difference between two values is meaningful. Interval data has no true zero value");
+    div3.append("li").text("Temperature (Celcius)");
+    div3.append("li").text("SAT scores (200-800)");
+    div3.append("li").text("Shoe size");
+
+    const div4 = d3.select("#ratio");
+    div4.append("h1").text("Ratio");
+    div4.append("p").text("A ratio scale is a quantitative scale where there is a true zero and equal intervals between neighboring points. Unlike on an interval scale, a zero on a ratio scale means there is a total absence of the variable you are measuring.");
+    div4.append("li").text("Number of childrens");
+    div4.append("li").text("Speed m/h");
+    div4.append("li").text("Number os positive cases on campus");
+    
+  
+  </script>
+
+</body>

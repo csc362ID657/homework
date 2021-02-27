@@ -11,7 +11,7 @@
 <script>
     const array =  [92, 56, 14, 73, 22, 38, 93, 45, 55]; //Array Data
 
-    const circles =  [50, 150, 250, 350, 450, 550, 650, 750, 850];
+    //const circles =  [50, 150, 250, 350, 450, 550, 650, 750, 850];
 
     d3.select("#chart")
             .selectAll("circle")
@@ -29,7 +29,7 @@
             .transition().duration(1500) //How fast is the transition
                 .attr("r",  d => d/2)
                 .style("fill", "blue")
-            .data(circles)
+                .data(circles)
                 .attr("cx", d => d)
         }, 2000)
 

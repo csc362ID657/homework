@@ -9,27 +9,26 @@
 <body>
 <svg id="chart" width="1000" height="300"></svg>
 <script>
+    //My circle array
     const array =  [92, 56, 14, 73, 22, 38, 93, 45, 55]; //Array Data
 
-    //const circles =  [50, 150, 250, 350, 450, 550, 650, 750, 850];
-
+    //Code for the initial arrangement
     d3.select("#chart")
             .selectAll("circle")
             .data(array)
-                .enter()
-                .append("circle")
-                .attr("cy", 100)
-                .attr("r", d => d/2)
-            .data(circles)
-                .attr("cx", d => d)
-
+            .enter()
+            .append("circle")
+            .attr("r", d => d/2)
+            .attr("cy", 100)
+            .attr("cx", d => 50 + 100 * array.indexOf(d))
+    //Code that does the transition
     setTimeout(function() {
         d3.select("#chart").selectAll("circle") //Shapes
             .data(array.sort())
             .transition().duration(1500) //How fast is the transition
                 .attr("r",  d => d/2)
-                .style("fill", "blue")
-                .attr("cx", d => d)
+                .attr("cy", 100)
+                .attr("cx", d => 50 + 100 * array.indexOf(d))
         }, 2000)
 
     
